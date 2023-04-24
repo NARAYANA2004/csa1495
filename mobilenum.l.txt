@@ -1,0 +1,13 @@
+%{
+#include<stdio.h>
+%}
+%%
+[6-9][0-9]{9}+ {printf("valid number",yytext);}
+.+ {printf("not valid number",yytext);}
+%%
+
+int yywrap(){}
+int main()
+{
+while(yylex());
+}

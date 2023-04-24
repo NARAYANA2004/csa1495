@@ -1,0 +1,13 @@
+%{
+#include<stdio.h>
+%}
+%%
+[a-zA-Z][a-zA-Z0-9]+ {printf("%s is an identifier",yytext);}
+.+ {printf("%s is not an identifier",yytext);}
+%%
+
+int yywrap(){}
+int main()
+{
+while(yylex());
+}
