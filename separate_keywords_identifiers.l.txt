@@ -1,0 +1,18 @@
+%{
+#include <stdio.h>
+%}
+
+%option noyywrap
+
+%%
+
+int|char|float|double   { printf("Keyword: %s\n", yytext); }
+[a-zA-Z][a-zA-Z0-9]*    { printf("Identifier: %s\n", yytext); }
+.|\n                    { /* ignore all other characters */ }
+
+%%
+
+int main(void) {
+    yylex();
+    return 0;
+}
